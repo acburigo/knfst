@@ -3,7 +3,7 @@ import scipy as sp
 from knfst import calculate_knfst
 
 
-def learn_multiclass_novelty_knfst(K, labels):
+def learn(K, labels):
     '''
     Calculate multi-class KNFST model for multi-class novelty detection
     
@@ -23,6 +23,6 @@ def learn_multiclass_novelty_knfst(K, labels):
         k_cl = K[labels==cl]
         target_points.append(np.mean(k_cl.dot(proj), axis=0))
         
-    return proj, target_points
+    return proj, np.array(target_points)
 
 
