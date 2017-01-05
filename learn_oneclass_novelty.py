@@ -23,6 +23,4 @@ def learn_oneclass_novelty(K):
     target_value = np.mean(K[(labels == 1).reshape(-1), :].dot(proj), axis=0).reshape(-1, 1)
     proj = proj[0:n, :]
 
-    #print K.shape, labels.shape, proj.shape, target_value.shape
-
     return proj, target_value
