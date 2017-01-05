@@ -3,12 +3,12 @@ import scipy as sp
 from knfst import calculate_knfst
 
 
-def learn(K, labels):
+def learn_multiclass_novelty(K, labels):
     '''
     Calculate multi-class KNFST model for multi-class novelty detection
-    
+
     INPUT
-      K: NxN kernel matrix containing similarities of n training samples
+      K: NxN kernel matrix containing similarities of N training samples
       labels: Nx1 column vector containing multi-class labels of N training samples
 
     OUTPUT
@@ -22,7 +22,5 @@ def learn(K, labels):
     for cl in classes:
         k_cl = K[labels==cl, :]
         target_points.append(np.mean(k_cl.dot(proj), axis=0))
-        
+
     return proj, np.array(target_points)
-
-
