@@ -79,9 +79,9 @@ def nullspace(A, atol=1e-13, rtol=0):
 
     A = np.atleast_2d(A)
     u, s, vh = svd(A)
-    print(s)
+    #print(s)
     tol = max(atol, rtol * s[0])
     nnz = (s >= tol).sum()
-    print("nnz:", nnz)
+    #print("nnz:", nnz)
     ns = vh[nnz:].conj().T
     return ns
